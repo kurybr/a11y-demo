@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegação por teclado</title>
+    <link href='https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <a id="voltar" href="/">Voltar para página inicial</a>
+    </header>
+
+    <main>
+
+        <ol>
+            <li tabindex="3">Item 1</li>
+            <li tabindex="5">Item 2</li>
+            <li tabindex="-1">Item 3</li>
+            <li tabindex="1">Item 4</li>
+            <li tabindex="4">Item 5</li>
+            <li tabindex="-1">Item 6</li>
+            <li tabindex="2">Item 7</li>
+            <li tabindex="6">Item 8</li>
+            <li tabindex="-1">Item 9</li>
+            <li tabindex="7">Item 10</li>
+        </ol>
+
+
+        <p>
+            Precione <kbd>Ctrl + V</kbd> para focar no botão de "Voltar para página inicial"
+        </p>
+    </main>
+
+
+    <script>
+        document.addEventListener('keydown', (event) => {
+            // Verifica se Ctrl e V estão pressionados juntos
+            if (event.ctrlKey && (event.key === 'v' || event.key === 'V')) {
+                // Previne o comportamento padrão (caso haja)
+                event.preventDefault();
+                // Foca no botão de "Votar"
+                document.getElementById('voltar').focus();
+            }
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
