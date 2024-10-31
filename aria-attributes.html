@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aria Attributes</title>
+    <link href='https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <a href="/">Voltar para página inicial</a>
+    </header>
+
+    <main>
+        <h1>
+            <span aria-hidden="true">🌟</span> Destaque
+        </h1>
+        <br>
+        <br>
+        <section>
+            <button id="menuButton" aria-expanded="false" aria-controls="mainNav">Abrir menu</button>
+            <nav id="mainNav" hidden>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Serviços</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <br>
+        <br>
+        <hr>
+
+        <section>
+            <form action="">
+                <label id="nameLabel" for="name">Nome Completo
+                    <i aria-describedby="info" class="ri-information-line"></i>
+                </label>
+                <input type="text" aria-labelledby="nameLabel" id="name">
+                <span id="errorMessage" role="alert" style="display: none; color: red;">Erro ao enviar o
+                    formulário!</span>
+                <button type="submit">Enviar nome</button>
+            </form>
+        </section>
+        <br>
+        <br>
+        <hr>
+        <p id="info" style="display:hidden;">Essa informação é muito importante</p>
+
+    </main>
+
+
+
+    <script>
+        const menuButton = document.getElementById('menuButton');
+        const mainNav = document.getElementById('mainNav');
+
+        menuButton.addEventListener('click', () => {
+
+            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+
+
+            menuButton.setAttribute('aria-expanded', !isExpanded);
+            menuButton.innerHTML = !isExpanded ? 'Fechar menu' : 'Abrir menu';
+            mainNav.hidden = isExpanded;
+        });
+
+    </script>
+
+    <script>
+        const form = document.querySelector('form');
+        const elNome = document.querySelector('#name');
+        const errorMessage = document.querySelector('#errorMessage');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (!elNome.value.trim()) {
+                errorMessage.style.display = 'block'; // Exibe a mensagem de erro
+            } else {
+                errorMessage.style.display = 'none'; // Esconde a mensagem se o campo estiver válido
+            }
+        });
+
+        // Oculta a mensagem quando o usuário começa a digitar novamente
+        elNome.addEventListener('input', () => {
+            errorMessage.style.display = 'none';
+        });
+    </script>
+
+</body>
+
+</html>

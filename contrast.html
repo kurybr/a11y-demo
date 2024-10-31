@@ -8,26 +8,71 @@
 </head>
 
 <body>
-    <a href="/">Voltar para página inicial</a>
-    <form action="">
-        <section>
-            <label for="nome"> nome </label>
-            <input type="text" id="nome" name="nome">
-            <span class="suggestion-message-fail">
-                Insira o seu nome completo
-            </span>
-        </section>
-    </form>
+    <header>
+        <a href="/">Voltar para página inicial</a>
+    </header>
+    <main>
+        <h1> ACESSIBILIDADE </h1>
+        <p>
+            O mundo vive atualmente a "era da informação" ou "sociedade da informação". A utilização de tecnologias de
+            informação e comunicação está em expansão no mundo e a internet é a "anfitriã" desta era. Os computadores
+            pessoais e as demais tecnologias, que possibilitam a interface entre o homem e a informação, estão mais
+            acessíveis economicamente às pessoas.
+        </p>
+
+        <button id="auto-contraste">
+            Auto Contraste
+        </button>
+    </main>
+
 
     <style>
         body {
-            background-color: #f8f8f8;
+            background-color: white;
         }
 
-        .suggestion-message-fail {
-            color: #efefef;
+        header {
+            color: white;
+        }
+
+        p {
+            color: #9d9d9d;
         }
     </style>
+
+    <style>
+        body.high-contrast {
+            background-color: black;
+        }
+
+        .high-contrast header {
+            color: white;
+        }
+
+        .high-contrast h1 {
+            color: white;
+        }
+
+        .high-contrast p {
+            color: white;
+        }
+    </style>
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.querySelector('#auto-contraste').addEventListener('click', function () {
+                var body = document.querySelector('body');
+                body.classList.toggle('high-contrast');
+            });
+
+        })
+
+
+
+    </script>
 
 </body>
 

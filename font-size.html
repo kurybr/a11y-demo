@@ -8,26 +8,36 @@
 </head>
 
 <body>
+    <header>
+        <a href="/">Voltar para página inicial</a>
+    </header>
 
-    <form action="">
-        <section>
-            <label for="nome"> nome </label>
-            <input type="text" id="nome" name="nome">
-            <span class="suggestion-message-fail">
-                Insira o seu nome completo
-            </span>
-        </section>
-    </form>
+    <main>
+
+        <h1>Exemplo de texto</h1>
+
+        <button id="aumentar"> Aumentar </button>
+        <button id="diminuir"> Diminuir </button>
+
+    </main>
 
     <style>
-        body {
-            background-color: #f8f8f8;
-        }
-
-        .suggestion-message-fail {
-            color: #efefef;
+        h1 {
+            font-size: 1rem;
         }
     </style>
+
+    <script>
+        let font = '18';
+        document.getElementById('aumentar').addEventListener('click', function () {
+            document.querySelector('html').style.fontSize = `${font++}px`;
+        });
+
+        document.getElementById('diminuir').addEventListener('click', function () {
+            document.querySelector('html').style.fontSize = `${font--}px`;
+        });
+
+    </script>
 
 </body>
 
